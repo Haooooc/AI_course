@@ -48,6 +48,8 @@ int D_(M a)
             int ty = num % 3 ;
             d += abs(i - tx) + abs(j - ty) ;
         }
+        else
+        d += abs(i - 2) + abs(j - 2) ;
     }
     return d ;
 }
