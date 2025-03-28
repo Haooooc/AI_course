@@ -95,11 +95,25 @@ void a_star(M a)
 
 int main()
 {
+    int cnt = 0 ;
     ss = new struct node ;
     for (int i = 0 ; i < 3 ;i ++)
     for (int j = 0 ; j < 3 ;j ++)
     {
         cin >> ss->m[i][j] ;
+        if(ss->m[i][j] != 'x')
+        for(int k = 0 ; k < i ;k ++)
+        for(int l = 0 ; l < 3 ;l ++)
+        {
+            if(ss->m[k][l] != 'x' && ss->m[k][l] > ss->m[i][j])
+            cnt ++ ;
+        }
+        if(ss->m[i][j] != 'x')
+        for(int l = 0 ; l < j ;l ++)
+        {
+            if(ss->m[i][l] != 'x' && ss->m[i][l] > ss->m[i][j])
+            cnt ++ ;
+        }
         if (ss->m[i][j] == 'x')
         {
             ss->x = i ;
@@ -107,7 +121,10 @@ int main()
             ss->depth = 0 ;
         }
     }
+    if(cnt % 2 == 0)
     a_star(*ss);
+    else
+    cout << "unsolvable" ;
     delete ss;
     return 0;
 }

@@ -24,7 +24,7 @@ void dijk()
         return ;
 		vis[mp] = true ;
 		for(int k = 1 ; k <= n ;k ++)
-		if(dis[k] > dis[mp] + a[mp][k] && !vis[k] && a[mp][k] != MAX) 
+		if(dis[k] > dis[mp] + a[mp][k] && a[mp][k] != MAX) 
 		dis[k] = dis[mp] + a[mp][k] ;
 	}
 }
